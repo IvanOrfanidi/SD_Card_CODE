@@ -49,16 +49,16 @@
                 <option>
                     <name>GRuntimeLibSelect</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>GRuntimeLibSelectSlave</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>2</state>
                 </option>
                 <option>
                     <name>RTDescription</name>
-                    <state>Use the normal configuration of the C/C++ runtime library. No locale interface, C locale, no file descriptor support, no multibytes in printf and scanf, and no hex floats in strtod.</state>
+                    <state>Use the full configuration of the C/C++ runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
                 </option>
                 <option>
                     <name>OGProductVersion</name>
@@ -112,7 +112,7 @@
                 </option>
                 <option>
                     <name>RTConfigPath2</name>
-                    <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Normal.h</state>
+                    <state>$TOOLKIT_DIR$\INC\c\DLib_Config_Full.h</state>
                 </option>
                 <option>
                     <name>GBECoreSlave</name>
@@ -347,6 +347,11 @@
                     <name>CCIncludePath2</name>
                     <state>$PROJ_DIR$</state>
                     <state>$PROJ_DIR$\Application</state>
+                    <state>$PROJ_DIR$\STM32F10x_Drivers_Lib\inc</state>
+                    <state>$PROJ_DIR$\STM32F10x_Drivers_Lib\CMSIS\CM3\CoreSupport</state>
+                    <state>$PROJ_DIR$\STM32F10x_Drivers_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x</state>
+                    <state>$PROJ_DIR$\Vectors</state>
+                    <state>$PROJ_DIR$\FatFs\source</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -592,7 +597,7 @@
                 </option>
                 <option>
                     <name>AOutputFile</name>
-                    <state></state>
+                    <state>$FILE_BNAME$.o</state>
                 </option>
                 <option>
                     <name>ALimitErrorsCheck</name>
@@ -2043,6 +2048,54 @@
         <name>Application</name>
         <file>
             <name>$PROJ_DIR$\Application\main.cpp</name>
+        </file>
+    </group>
+    <group>
+        <name>FatFs</name>
+    </group>
+    <group>
+        <name>Linker</name>
+        <file>
+            <name>$PROJ_DIR$\linker.icf</name>
+        </file>
+    </group>
+    <group>
+        <name>SD Card</name>
+    </group>
+    <group>
+        <name>STM32F10x_Drivers_Lib</name>
+        <file>
+            <name>$PROJ_DIR$\STM32F10x_Drivers_Lib\src\exti.cpp</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\STM32F10x_Drivers_Lib\src\interrupt.cpp</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\STM32F10x_Drivers_Lib\src\rtc.cpp</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\STM32F10x_Drivers_Lib\src\systick.cpp</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\STM32F10x_Drivers_Lib\src\uart.cpp</name>
+        </file>
+    </group>
+    <group>
+        <name>System Core</name>
+        <group>
+            <name>Startup</name>
+            <file>
+                <name>$PROJ_DIR$\STM32F10x_Drivers_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\iar\startup_stm32f10x_hd.s</name>
+            </file>
+        </group>
+        <file>
+            <name>$PROJ_DIR$\STM32F10x_Drivers_Lib\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.c</name>
+        </file>
+    </group>
+    <group>
+        <name>Vectors</name>
+        <file>
+            <name>$PROJ_DIR$\Vectors\stm32f10x_it.c</name>
         </file>
     </group>
 </project>
